@@ -4,13 +4,15 @@ import com.demoSpring.demoSpring.entidades.User;
 import com.demoSpring.demoSpring.repositorios.UserRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class UserService {
 
+// INJECAO DE DEPENDENCIA
     @Autowired
     private UserRepositories repositories;
 

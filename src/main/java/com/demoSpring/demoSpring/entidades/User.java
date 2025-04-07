@@ -1,21 +1,29 @@
 package com.demoSpring.demoSpring.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Table(name="tb_user")
+@Entity // MARCA A CLASSE COMO ENTIDADE JPA (SERA UMA TABELA NO BANCO)
+@Table(name="tb_user") // DEFINE O NOME DA TABELA NO BANCO
 public class User implements Serializable {
-
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+
+    @Id // O CAMPO DA CLASSE ASSOCIADA SERA CHAVE PRIMARIA
+    @GeneratedValue(strategy= GenerationType.IDENTITY) // METODO DE GERACAO AUTOMATICO PARA A CLASSE ASSOCIADA AO @Id
     private Long id;
     private String name;
     private String email;
     private String password;
     private String phone;
+
+    //@JsonIgnore
+    @OneToMany(mappedBy="client") // UM USER PODE TER VARIOS ORDERS
+                                  // MAPPED INDICA QUE O ATRIBUTO client EM ORDER, GERENCIA O MAPEAMETO NO BANCO
+    private List<Order> orders = new ArrayList<>();
 
 
     public User() {}
@@ -59,6 +67,9 @@ public class User implements Serializable {
     }
     public void setPhone(String phone){
         this.phone = phone;
+    }
+    public List<Order> getOrder(){
+        return this.orders  ;
     }
 
 
