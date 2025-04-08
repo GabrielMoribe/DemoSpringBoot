@@ -1,7 +1,10 @@
 package com.demoSpring.demoSpring.config;
 
+import com.demoSpring.demoSpring.entidades.Category;
 import com.demoSpring.demoSpring.entidades.Order;
+import com.demoSpring.demoSpring.Enum.OrderStatus;
 import com.demoSpring.demoSpring.entidades.User;
+import com.demoSpring.demoSpring.repositorios.CategoryRepositories;
 import com.demoSpring.demoSpring.repositorios.OrderRepositories;
 import com.demoSpring.demoSpring.repositorios.UserRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,8 @@ public class TestConfig implements CommandLineRunner {
     private UserRepositories userRepositories;
     @Autowired
     private OrderRepositories orderRepositories;
+    @Autowired
+    private CategoryRepositories categoryRepositories;
 
     @Override
     public void run(String... args) throws Exception {
@@ -29,8 +34,13 @@ public class TestConfig implements CommandLineRunner {
         userRepositories.saveAll(Arrays.asList(u1,u2));
 
 
-        Order o1 = new Order(null, Instant.parse("2025-04-07T19:00:00Z"), u1);
-        Order o2 = new Order(null, Instant.parse("2025-04-08T19:00:00Z"), u2);
+        Order o1 = new Order(null, Instant.parse("2025-04-07T19:00:00Z"), OrderStatus.PAID, u1);
+        Order o2 = new Order(null, Instant.parse("2025-04-08T19:00:00Z"),OrderStatus.WAITING_PAYIMENT, u2);
         orderRepositories.saveAll(Arrays.asList(o1,o2));
+
+
+        Category c1 = new Category(null, "Cereais");
+        Category c2 = new Category(null, "Frutas");
+        categoryRepositories.saveAll(Arrays.asList(c1,c2));
     }
 }
