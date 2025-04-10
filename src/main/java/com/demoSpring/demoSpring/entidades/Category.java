@@ -1,9 +1,12 @@
 package com.demoSpring.demoSpring.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name="tb_category")
@@ -15,7 +18,9 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    //TODO ADICIONAR A ASSOCIACAO COM A CLASSE PRODUTO
+    @JsonIgnore
+    @ManyToMany(mappedBy = "category_list")
+    private Set<Product> product_list = new HashSet<>(); // UTILIZA-SE SET POIS ELE NAO ADMITE REPETICAO DE CATEGORIAS
 
     public Category(){}
     public Category(Long id,String name){
@@ -36,6 +41,10 @@ public class Category implements Serializable {
     public void setName(String name){
         this.name=name;
     }
+    public Set<Product> getProduct_list() {
+        return product_list;
+    }
+
 
 
     @Override
@@ -49,4 +58,6 @@ public class Category implements Serializable {
     public int hashCode() {
         return Objects.hash(id, name);
     }
+
+
 }
