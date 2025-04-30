@@ -19,7 +19,7 @@ public class Category implements Serializable {
     private String name;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "category_list")
+    @ManyToMany(mappedBy = "category_list") // NOME DA COLECAO ( SET )
     private Set<Product> product_list = new HashSet<>(); // UTILIZA-SE SET POIS ELE NAO ADMITE REPETICAO DE CATEGORIAS
 
     public Category(){}

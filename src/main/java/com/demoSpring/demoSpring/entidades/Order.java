@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity // MARCA A CLASSE COMO ENTIDADE JPA (SERA UMA TABELA NO BANCO)
@@ -26,6 +28,10 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name="client_id") // @JoinColumn DEFINE O NOME DA COLUNA NO BANCO QUE SERA USADA COMO FK
     private User client;          // INDICA O NOME DA COLUNA NO BANCO
+
+
+    @OneToMany(mappedBy="id.order")
+    private Set<OrderItem> items = new HashSet<>();
 
 
     public Order(){}
@@ -63,6 +69,12 @@ public class Order implements Serializable {
     }
     public void setClient(User client){
         this.client=client;
+    }
+    public Set<OrderItem> getItems(){
+        return this.items;
+    }
+    public Set<OrderItem> setItems(Set<OrderItem> items){
+        return this.items=items;
     }
 
 

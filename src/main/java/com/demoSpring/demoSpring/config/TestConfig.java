@@ -1,14 +1,8 @@
 package com.demoSpring.demoSpring.config;
 
-import com.demoSpring.demoSpring.entidades.Category;
-import com.demoSpring.demoSpring.entidades.Order;
+import com.demoSpring.demoSpring.entidades.*;
 import com.demoSpring.demoSpring.Enum.OrderStatus;
-import com.demoSpring.demoSpring.entidades.Product;
-import com.demoSpring.demoSpring.entidades.User;
-import com.demoSpring.demoSpring.repositorios.CategoryRepositories;
-import com.demoSpring.demoSpring.repositorios.OrderRepositories;
-import com.demoSpring.demoSpring.repositorios.ProductRepositories;
-import com.demoSpring.demoSpring.repositorios.UserRepositories;
+import com.demoSpring.demoSpring.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -29,6 +23,8 @@ public class TestConfig implements CommandLineRunner {
     private CategoryRepositories categoryRepositories;
     @Autowired
     private ProductRepositories productRepositories;
+    @Autowired
+    private OrderItemRepositories orderItemRepositories;
 
     @Override
     public void run(String... args) throws Exception {
@@ -57,5 +53,10 @@ public class TestConfig implements CommandLineRunner {
         p2.getCategory_list().add(c2);
         p3.getCategory_list().add(c1);
         productRepositories.saveAll(Arrays.asList(p1,p2,p3));
+
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice()*2);
+        OrderItem oi2 = new OrderItem(o1, p2, 1, p2.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 3, p3.getPrice()*3);
+        orderItemRepositories.saveAll(Arrays.asList(oi1,oi2,oi3));
     }
 }
