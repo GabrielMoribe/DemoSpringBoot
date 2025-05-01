@@ -29,9 +29,11 @@ public class Order implements Serializable {
     @JoinColumn(name="client_id") // @JoinColumn DEFINE O NOME DA COLUNA NO BANCO QUE SERA USADA COMO FK
     private User client;          // INDICA O NOME DA COLUNA NO BANCO
 
-
     @OneToMany(mappedBy="id.order")
-    private Set<OrderItem> items = new HashSet<>();
+    private Set<OrderItem> items = new HashSet<>();  //UMA ORDER POSSUI VARIOS ITEMS ( ORDERITEMPK )
+
+    @OneToOne(mappedBy="order" , cascade = CascadeType.ALL)
+    private Payment payment;
 
 
     public Order(){}
@@ -75,6 +77,12 @@ public class Order implements Serializable {
     }
     public Set<OrderItem> setItems(Set<OrderItem> items){
         return this.items=items;
+    }
+    public Payment getPayment(){
+        return this.payment;
+    }
+    public void setPayment(Payment payment){
+        this.payment=payment;
     }
 
 
