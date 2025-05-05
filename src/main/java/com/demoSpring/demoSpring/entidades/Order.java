@@ -86,11 +86,17 @@ public class Order implements Serializable {
     }
 
 
+    public Double getTotal(){
+        double sum = 0.0;
+        for(OrderItem i : items){
+            sum+=i.getSubTotal();
+        }
+        return sum;
+    }
     @Override
     public int hashCode() {
         return Objects.hash(id); // Uso de java.util.Objects para evitar código manual e erros
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
