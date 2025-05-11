@@ -1,14 +1,13 @@
 package com.demoSpring.demoSpring.services;
 
-import com.demoSpring.demoSpring.entidades.User;
-import com.demoSpring.demoSpring.repositorios.UserRepositories;
+import com.demoSpring.demoSpring.model.User;
+import com.demoSpring.demoSpring.repository.UserRepositories;
 import com.demoSpring.demoSpring.services.exceptions.DatabaseException;
 import com.demoSpring.demoSpring.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-// INJECAO DE DEPENDENCIA
     @Autowired
     private UserRepositories repositories;
 
@@ -56,3 +54,5 @@ public class UserService {
         entity.setPhone(obj.getPhone());
     }
 }
+
+

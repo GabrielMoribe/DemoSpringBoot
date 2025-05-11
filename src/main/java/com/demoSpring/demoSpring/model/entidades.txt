@@ -1,0 +1,13 @@
+Contém as interfaces que representam as entidades do domínio
+São mapeadas para tabelas no banco de dados (H2 Database)
+Cada instancia destas classes será uma linha no banco
+
+@Entity - Marca uma entidade JPA, indicando que será mapeada no banco
+@Table  - Nomeia a tabela no banco
+@Id     - Chave primária
+@GeneratedValue - Metodo de geração da chave p. (auto-increment)
+@ManyToMany     - Relacionamento muitos-pra-muitos (uma Category pode ter muitos Produtct, e vice versa)
+                  mappedBy indica que o mapeamento esta em outra entidade (Product)
+@JsonIgnore     - Previne recursão infinita na API REST impedindo a serialização para Json
+                  Category serializa seus Product, cada Product serializa suas Category, e assim por diante
+                

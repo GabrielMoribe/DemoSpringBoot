@@ -1,7 +1,7 @@
 package com.demoSpring.demoSpring.services;
 
-import com.demoSpring.demoSpring.entidades.Product;
-import com.demoSpring.demoSpring.repositorios.ProductRepositories;
+import com.demoSpring.demoSpring.model.Product;
+import com.demoSpring.demoSpring.repository.ProductRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,6 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
-    // INJECAO DE DEPENDENCIA
     @Autowired
     private ProductRepositories repositories;
 

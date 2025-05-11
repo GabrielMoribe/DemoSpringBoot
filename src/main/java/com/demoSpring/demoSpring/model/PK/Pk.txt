@@ -1,0 +1,6 @@
+Classes que representam chaves primarias compostas
+OrderItemPK é usada para combinar order_id e product_id
+
+@Embeddable - classe será incorporada em outra entidade (OrderItem) para representar PK composta
+@ManyToOne  - relacionamento muitos-para-um (um Order pode ter varios OrderItem) 
+@JoinColumn - coluna de junção para o relacionamento

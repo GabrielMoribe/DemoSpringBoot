@@ -1,0 +1,5 @@
+trata das exceçoes que podem ocorrer na REST API
+
+@ControllerAdvice - centraliza o tratamento de excecoes em um unico lugar (aplica-se a todos os controlers)
+
+@ExceptionHandler - define o tipo de exceção a ser tratada (pode tratar de multiplas excecoes em um unico metodo)                    

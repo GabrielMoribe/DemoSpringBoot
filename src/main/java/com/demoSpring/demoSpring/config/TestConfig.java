@@ -1,8 +1,8 @@
 package com.demoSpring.demoSpring.config;
 
-import com.demoSpring.demoSpring.entidades.*;
+import com.demoSpring.demoSpring.model.*;
 import com.demoSpring.demoSpring.Enum.OrderStatus;
-import com.demoSpring.demoSpring.repositorios.*;
+import com.demoSpring.demoSpring.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;

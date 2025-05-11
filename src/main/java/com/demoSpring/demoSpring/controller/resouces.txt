@@ -1,0 +1,25 @@
+Atuam como controladores REST, expondo os endpoints da application
+Definem rotas para o acesso de recursos
+
+@RestController - marca a classe como controlador REST  
+                  os valores retornados serão transformados em JSON/XML
+
+@RequestMapping - define o caminho base para os endpoints da classe (/users , por exemplo)
+
+@Autowired      - injeção de dependencia
+
+@GetMapping     - mapeia requisicoes GET
+                  busca/leitura de dados
+
+@PostMapping    - mapeia requisicoes POST
+                  cria novos recursos
+
+@DeleteMapping  - mapeia requisicoes DELETE
+                  remove recursos                
+
+@PutMapping     - mapeia requisicoes PUT
+                  editar recursos                  
+
+@PathVariable   - extrai valores da url
+
+@RequestBody    - converte o corpo da requisicao em um objeto

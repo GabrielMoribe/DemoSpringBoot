@@ -1,0 +1,5 @@
+Utilizam os repositorios através de injeções de dependencia (@Autowired)
+implementa a lógica de negócios
+
+@Service - marca a classe como um componente de serviço 
+           permite que o spring gerencie a injecao de dependencias (geração de beans)

@@ -1,7 +1,7 @@
 package com.demoSpring.demoSpring.services;
 
-import com.demoSpring.demoSpring.entidades.Category;
-import com.demoSpring.demoSpring.repositorios.CategoryRepositories;
+import com.demoSpring.demoSpring.model.Category;
+import com.demoSpring.demoSpring.repository.CategoryRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,6 @@ import java.util.Optional;
 @Service
 public class CategoryService {
 
-    // INJECAO DE DEPENDENCIA
     @Autowired
     private CategoryRepositories repositories;
 

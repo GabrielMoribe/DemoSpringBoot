@@ -1,0 +1,4 @@
+classes de configuracao do spring
+
+@Configuration    - indica que é uma classe de configuracao
+@Profile('test')  -  configuração só será ativa quando o perfil "test" , definido em application.properties, estiver ativo

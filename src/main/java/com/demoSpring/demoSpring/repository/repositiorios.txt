@@ -1,0 +1,3 @@
+Interfaces que estendem JpaRepository
+Realizam operações no banco
+Utilizadas pelos services
